@@ -21,9 +21,9 @@ var contactList = [Contact]()
 // MARK: Helper program to load sample data
 func loadSampleContact() {
     
-    let contact1 = Contact(name: "Name of Contact1", phone: "Phone of Contact1")
-    let contact2 = Contact(name: "Name of Contact2", phone: "Phone of Contact2")
-    let contact3 = Contact(name: "Name of Contact3", phone: "Phone of Contact3")
+    let contact1 = Contact(name: "Name of Contact1", phone: "123")
+    let contact2 = Contact(name: "Name of Contact2", phone: "456")
+    let contact3 = Contact(name: "Name of Contact3", phone: "789")
     
     contactList += [contact1, contact2, contact3]
     

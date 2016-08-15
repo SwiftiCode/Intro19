@@ -87,14 +87,39 @@ class ContactListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
+        let editContactDetailViewController = segue.destinationViewController as! ContactDetailViewController
+        
         // Pass the selected object to the new view controller.
+        if let selectedCell = sender as? UITableViewCell {
+            
+            let selectedIndexPath = tableView.indexPathForCell(selectedCell)!
+            let selectedContact = contactList[selectedIndexPath.row]
+            editContactDetailViewController.detailContact = selectedContact
+            
+        }
+        
+        
+        
     }
-    */
+    
 
+    @IBAction func editContactUnwindToContactList(segue: UIStoryboardSegue) {
+        
+        if let editContactViewController = segue.sourceViewController as? ContactDetailViewController {
+            
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            contactList[selectedIndexPath.row] = editContactViewController.detailContact!
+            tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+            
+            
+        }
+        
+    }
+    
 }

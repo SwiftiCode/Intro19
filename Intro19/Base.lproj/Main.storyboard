@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Contact List-->
@@ -30,6 +31,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="m1z-hZ-jGE" kind="show" id="mcW-3R-qXa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -42,6 +46,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfU-62-NCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969" y="349"/>
+        </scene>
+        <!--Edit Contact-->
+        <scene sceneID="PSX-8v-0ng">
+            <objects>
+                <viewController id="m1z-hZ-jGE" customClass="ContactDetailViewController" customModule="Intro19" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Il8-rK-hnh"/>
+                        <viewControllerLayoutGuide type="bottom" id="qf1-k6-DM6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V01-lK-wpw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtm-qh-Evd">
+                                <rect key="frame" x="20" y="89" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CwQ-j1-FnA"/>
+                                    <constraint firstAttribute="width" constant="100" id="sdU-dk-cUP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Name Here" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-h0-XBQ">
+                                <rect key="frame" x="140" y="89" width="440" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phone Here" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6Lh-TA-0bb">
+                                <rect key="frame" x="140" y="144" width="440" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HnQ-0r-SlU">
+                                <rect key="frame" x="20" y="144" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JMc-jU-rXb"/>
+                                    <constraint firstAttribute="width" constant="100" id="JQE-yZ-cFZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ayY-h0-XBQ" firstAttribute="leading" secondItem="Mtm-qh-Evd" secondAttribute="trailing" constant="20" id="1Ul-XD-w3W"/>
+                            <constraint firstItem="ayY-h0-XBQ" firstAttribute="top" secondItem="Il8-rK-hnh" secondAttribute="bottom" constant="25" id="7eE-vX-1e4"/>
+                            <constraint firstItem="ayY-h0-XBQ" firstAttribute="trailing" secondItem="V01-lK-wpw" secondAttribute="trailingMargin" id="ALQ-sb-WTO"/>
+                            <constraint firstItem="HnQ-0r-SlU" firstAttribute="leading" secondItem="V01-lK-wpw" secondAttribute="leadingMargin" id="J1M-Dn-M4w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Lh-TA-0bb" secondAttribute="trailing" id="KRM-iL-QWl"/>
+                            <constraint firstItem="6Lh-TA-0bb" firstAttribute="top" secondItem="ayY-h0-XBQ" secondAttribute="bottom" constant="25" id="Kdn-BN-WGk"/>
+                            <constraint firstItem="Mtm-qh-Evd" firstAttribute="leading" secondItem="V01-lK-wpw" secondAttribute="leadingMargin" id="VCA-dx-mHm"/>
+                            <constraint firstItem="HnQ-0r-SlU" firstAttribute="top" secondItem="Mtm-qh-Evd" secondAttribute="bottom" constant="25" id="hbc-aX-zdY"/>
+                            <constraint firstItem="Mtm-qh-Evd" firstAttribute="top" secondItem="Il8-rK-hnh" secondAttribute="bottom" constant="25" id="ki0-PR-gT9"/>
+                            <constraint firstItem="6Lh-TA-0bb" firstAttribute="leading" secondItem="HnQ-0r-SlU" secondAttribute="trailing" constant="20" id="tjG-ju-cny"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Contact" id="954-uR-HRK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5Z1-2U-nbw">
+                            <connections>
+                                <segue destination="4J7-Cz-6nH" kind="unwind" unwindAction="editContactUnwindToContactList:" id="aMS-Ui-nAf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contactNameTextField" destination="ayY-h0-XBQ" id="s2F-Oa-H34"/>
+                        <outlet property="contactPhoneTextField" destination="6Lh-TA-0bb" id="ktX-68-BPN"/>
+                        <outlet property="saveButton" destination="5Z1-2U-nbw" id="Jcc-av-DQx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBL-aD-UuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4J7-Cz-6nH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dDa-pU-sdW">
