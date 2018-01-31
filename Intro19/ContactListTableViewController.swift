@@ -29,19 +29,19 @@ class ContactListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return contactList.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ContactListCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCell", for: indexPath)
 
         // Configure the cell...
         let myContact = contactList[indexPath.row]
@@ -91,31 +91,29 @@ class ContactListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        let editContactDetailViewController = segue.destinationViewController as! ContactDetailViewController
+        let editContactDetailViewController = segue.destination as! ContactDetailViewController
         
         // Pass the selected object to the new view controller.
         if let selectedCell = sender as? UITableViewCell {
             
-            let selectedIndexPath = tableView.indexPathForCell(selectedCell)!
+            let selectedIndexPath = tableView.indexPath(for: selectedCell)!
             let selectedContact = contactList[selectedIndexPath.row]
             editContactDetailViewController.detailContact = selectedContact
             
         }
         
-        
-        
     }
     
 
-    @IBAction func editContactUnwindToContactList(segue: UIStoryboardSegue) {
+    @IBAction func editContactUnwindToContactList(_ segue: UIStoryboardSegue) {
         
-        if let editContactViewController = segue.sourceViewController as? ContactDetailViewController {
+        if let editContactViewController = segue.source as? ContactDetailViewController {
             
             let selectedIndexPath = tableView.indexPathForSelectedRow!
             contactList[selectedIndexPath.row] = editContactViewController.detailContact!
-            tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
             
             
         }
